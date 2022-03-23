@@ -3,18 +3,26 @@
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código:
+  return array [0]
+
+  //también puede ser return array.shift();  te dice cual es el primer array y lo borra
 }
 
 
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
+  return array[array.length-1];
+
+  //también puede ser return array.pop();  te dice cual es el ultimo array y lo borra
 }
 
 
 function obtenerLargoDelArray(array) {
   // Devuelve el largo de un array
   // Tu código:
+
+  return array.length;
 }
 
 
@@ -23,6 +31,14 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
+
+  var newArray = []
+
+  for (let i = 0; i < array.length; i++) {
+    newArray.push(array[i]+1)
+    
+  }
+  return newArray;
 }
 
 
@@ -30,6 +46,9 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
+  array.push(elemento)
+
+  return array;
 }
 
 
@@ -38,6 +57,11 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
+
+  array.unshift(elemento)
+
+  return array;
+
 }
 
 
@@ -47,6 +71,15 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
+
+ /*  var fraseCompleta = ''
+
+  for (let i = 0; i < palabras.length; i++) {
+    fraseCompleta = fraseCompleta + ' '+ palabras[i];
+  }
+  return fraseCompleta.trim(); */
+
+  return palabras.join(' ');
 }
 
 
@@ -54,13 +87,33 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-}
+
+return array.includes(elemento);
+
+  /* for (let i = 0; i < array.length; i++) {
+    if (array[i] = elemento){
+      return true
+    }
+    else {
+      return false
+    } 
+     */
+  }
 
 
 function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
+
+ /*  var acomulador = 0
+  for (let i = 0; i < numeros.length; i++) {
+    acomulador += numeros[i];
+  }
+  return acomulador; */
+
+  return numeros.reduce((acc,el)=>acc + el)
+
 }
 
 
@@ -68,6 +121,17 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+
+  var i = 0;
+  var suma = 0
+
+  while(i<resultadosTest.length){
+    suma += resultadosTest[i];
+    i++
+
+  }
+  return suma / resultadosTest.length
+
 }
 
 
@@ -75,20 +139,51 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
+
+  var max = numeros[0];
+
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i]>max) {
+      max = numeros[i];
+      return max
+    }
+    
+  }
+return max
+
+/* var max = Math.max(...numeros);
+  
+return max; */
+
 }
 
 
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
-  // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
+  // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-}
+  if(arguments.length < 1) return 0;
 
+  let mult=1;
+
+  for (let i = 0; i < arguments.length; i++) {
+
+    mult= mult*arguments[i];
+  }
+
+  return mult;
+}
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-
+  var contador=0;
+  for (let i = 0; i < arreglo.length; i++) {
+    if(arreglo[i] > 18){
+      contador++; //Esto es igual a contador = contador + 1
+    }
+  }
+  return contador;
 }
 
 
@@ -98,6 +193,7 @@ function diaDeLaSemana(numeroDeDia) {
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
   
+  
 } 
 
 
@@ -105,6 +201,12 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
+
+  let esNueve = n.slice(0);
+
+  if(esNueve===9){
+    return true;
+  }else {return false;}
   
 }
 
