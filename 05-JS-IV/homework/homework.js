@@ -7,9 +7,7 @@ function crearGato(nombre, edad) {
   // Devuelve el objeto
   // Tu código:
 
-
-
-  const gato = {
+const gato = {
     nombre: nombre,
     edad: edad,
     meow: function(){
@@ -18,7 +16,7 @@ function crearGato(nombre, edad) {
     }
   }
 
-  return gato;
+  return gato; 
 }
 
 
@@ -67,9 +65,9 @@ function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-  let objeto = {
+  const objeto = {
     nombre: nombre,
-    mail: mail,
+    email: email,
     password: password
   }
 
@@ -99,7 +97,7 @@ function tienePropiedad(objeto, propiedad) {
   if (objeto.hasOwnProperty(propiedad)) {
     return true;
   }
-  else false
+  return false;
 }
 
 function verificarPassword(usuario, password) {
@@ -169,7 +167,19 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
 
+let total = 0
+
+producto.calcularPrecioDescuento = function() {
+  total = producto.precio - (producto.precio * producto.porcentajeDeDescuento);
+  return total
 }
+
+return producto;
+
+}
+
+
+
 
 // No modificar nada debajo de esta línea
 // --------------------------------
